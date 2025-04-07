@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community Chat</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      margin-top: 20px;
+      color: #333;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tabs button {
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .tabs button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #tab-Reburg { background: #007bff; }
+    #tab-Sugar\ City { background: #28a745; }
+    #tab-Idaho\ Falls { background: #fd7e14; }
+    #tab-Greater\ Idaho { background: #6f42c1; }
+
+    .tabs .active {
+      outline: 3px solid white;
+    }
+
+    .chat-container {
+      width: 90%;
+      max-width: 800px;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      margin-top: 10px;
+    }
+
+    button.post-btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #333;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .message {
+      background: #f1f1f1;
+      padding: 10px;
+      border-left: 4px solid #007bff;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+
+    .message strong {
+      color: #333;
+    }
+
+    .reply-box {
+      margin-top: 5px;
+    }
+    .tabs .active {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+      outline: 3px solid white;
+      border: 2px solid #000;
+      opacity: 1 !important;
+    }
+
+    @media (max-width: 600px) {
+      .tabs button {
+        font-size: 14px;
+        padding: 8px 14px;
+      }
+
+      .chat-container {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Community Chat</h2>
+
+  <div class="tabs">
+    <button onclick="switchRoom('Reburg')" id="tab-Reburg">Reburg</button>
+    <button onclick="switchRoom('Sugar City')" id="tab-Sugar City">Sugar City</button>
+    <button onclick="switchRoom('Idaho Falls')" id="tab-Idaho Falls">Idaho Falls</button>
+    <button onclick="switchRoom('Greater Idaho')" id="tab-Greater Idaho">Greater Idaho</button>
+  </div>
+
+  <div class="chat-container">
+    <textarea id="messageInput" placeholder="Type your message..."></textarea>
+    <button class="post-btn" onclick="sendMessage()">Post</button>
+    <div id="messages"></div>
+  </div>
+
+  <script src="message-board.js"></script>
+</body>
+</html>
